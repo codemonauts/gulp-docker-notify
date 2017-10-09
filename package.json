@@ -1,0 +1,31 @@
+{
+  "name": "gulp-docker-notify",
+  "version": "0.0.1",
+  "description": "gulp plugin to send messages from a gulp watch within a docker container to the host notification center",
+  "keywords": [
+    "gulpplugin",
+    "notify",
+    "gulp",
+    "notification",
+    "mac notification",
+    "docker"
+  ],
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": {
+    "name": "codemonauts UG (haftungsbeschränkt)",
+    "email": "crew@codemonauts.com",
+    "url": "https://github.com/codemonauts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/codemonauts/gulp-docker-notify.git"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "gulp-util": "^3.0.8",
+    "through2": "^2.0.3"
+  }
+}
