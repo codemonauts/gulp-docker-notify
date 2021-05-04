@@ -13,26 +13,22 @@ function sendNotification(messageString) {
   });
 }
 
-function gulpDockerNotify(title, information, error) {
+function gulpDockerNotify(title, information = "", error = false) {
 
   if (!title) {
-    throw new PluginError(PLUGIN_NAME, 'Missing title!');
+    throw new PluginError(PLUGIN_NAME, 'Your notification is missing a title.');
   }
 
-  if (information == 'undefined') {
-    var information = ""
-  }
-
-  return through.obj(function(file, enc, cb) {
+  return through.obj(function (file, enc, cb) {
 
     if (file.isNull()) {
       return cb(null, file);
     }
 
     var message = {
-      "title": template(title)({file: file}),
-      "information": template(information)({file: file}),
-      "error": false
+      "title": template(title)({ file: file }),
+      "information": template(information)({ file: file }),
+      "error": error
     }
 
     sendNotification(JSON.stringify(message));
