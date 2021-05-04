@@ -8,7 +8,7 @@ const PLUGIN_NAME = 'gulp-docker-notify';
 function sendNotification(messageString) {
   const message = Buffer.from(messageString);
   const client = dgram.createSocket('udp4');
-  client.send(message, 9090, 'docker.for.mac.localhost', (err) => {
+  client.send(message, 9090, '172.17.0.1', (err) => {
     client.close();
   });
 }

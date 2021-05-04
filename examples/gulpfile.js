@@ -1,8 +1,10 @@
-var gulp = require('gulp');
-var dockerNotify = require('../');
+const { src, dest } = require('gulp');
+const dockerNotify = require('../');
 
-gulp.task("default", function () {
-  gulp.src("../test/*.txt")
-      .pipe(dockerNotify("Build completed", "<%= file.relative %>"))
-      .pipe(gulp.dest('../test/dest'));
-});
+function exampleTask() {
+  return src('test/*.txt')
+    .pipe(dockerNotify("Build completed", "<%= file.relative %>"))
+    .pipe(dest('dest/'));
+}
+
+exports.default = exampleTask;
