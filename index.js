@@ -1,7 +1,7 @@
 var through = require('through2');
-var gutil = require('gulp-util');
+var template = require('lodash.template');
+var PluginError = require('plugin-error');
 var dgram = require('dgram');
-var PluginError = gutil.PluginError;
 
 const PLUGIN_NAME = 'gulp-docker-notify';
 
@@ -30,8 +30,8 @@ function gulpDockerNotify(title, information, error) {
     }
 
     var message = {
-      "title": gutil.template(title, {file: file}),
-      "information": gutil.template(information, {file: file}),
+      "title": template(title)({file: file}),
+      "information": template(information)({file: file}),
       "error": false
     }
 
